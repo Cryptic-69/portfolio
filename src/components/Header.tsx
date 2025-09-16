@@ -19,8 +19,8 @@ export function Header() {
   const handleResumeDownload = () => {
     // Mock resume download - replace with actual resume file
     const link = document.createElement('a');
-    link.href = '/Ved Zende Resume.pdf';
-    link.download = 'VedZende-resume.pdf';
+    link.href = process.env.PUBLIC_URL + '/Ved-Zende-Resume.pdf';
+    link.download = 'Ved-Zende-resume.pdf';
     link.click();
   };
 
