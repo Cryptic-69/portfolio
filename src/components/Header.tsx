@@ -1,30 +1,30 @@
-import { Github, Linkedin, Download, Moon, Sun } from 'lucide-react';
-import { Button } from './ui/button';
-import { motion } from 'motion/react';
-import { useState, useEffect } from 'react';
+import { Github, Linkedin, Download, Moon, Sun } from "lucide-react";
+import { Button } from "./ui/button";
+import { motion } from "motion/react";
+import { useState, useEffect } from "react";
 
 export function Header() {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     // Set initial dark mode
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.add("dark");
   }, []);
 
   const toggleDarkMode = () => {
     setIsDark(!isDark);
-    document.documentElement.classList.toggle('dark');
+    document.documentElement.classList.toggle("dark");
   };
 
   const handleResumeDownload = () => {
-    const link = document.createElement('a');
-    link.href = process.env.PUBLIC_URL + '/Ved-Zende-Resume.pdf';
-    link.download = 'Ved-Zende-resume.pdf';
+    const link = document.createElement("a");
+    link.href = "/Ved-Zende-Resume.pdf";
+    link.download = "Ved-Zende-Resume.pdf";
     link.click();
   };
 
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -56,31 +56,43 @@ export function Header() {
             onClick={toggleDarkMode}
             className="hover:bg-accent"
           >
-            {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            {isDark ? (
+              <Sun className="h-4 w-4" />
+            ) : (
+              <Moon className="h-4 w-4" />
+            )}
           </Button>
-          
+
           <Button
             variant="ghost"
             size="icon"
             asChild
             className="hover:bg-accent"
           >
-            <a href="https://github.com/Cryptic-69" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/Cryptic-69"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Github className="h-4 w-4" />
             </a>
           </Button>
-          
+
           <Button
             variant="ghost"
             size="icon"
             asChild
             className="hover:bg-accent"
           >
-            <a href="https://www.linkedin.com/in/ved-zende-247forwork/" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.linkedin.com/in/ved-zende-247forwork/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Linkedin className="h-4 w-4" />
             </a>
           </Button>
-          
+
           <Button
             variant="outline"
             size="sm"
